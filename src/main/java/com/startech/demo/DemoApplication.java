@@ -41,11 +41,15 @@ public class DemoApplication {
 
 	@Bean
 	public BasicDataSource dataSource()  throws URISyntaxException {
-		URI dbUri = new URI(System.getenv("DATABASE_URL"));
+//		URI dbUri = new URI(System.getenv("DATABASE_URL"));
+//
+//		String username = dbUri.getUserInfo().split(":")[0];
+//		String password = dbUri.getUserInfo().split(":")[1];
+//		String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ":" + dbUri.getPort() + dbUri.getPath() + "?sslmode=require";
 
-		String username = dbUri.getUserInfo().split(":")[0];
-		String password = dbUri.getUserInfo().split(":")[1];
-		String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ":" + dbUri.getPort() + dbUri.getPath() + "?sslmode=require";
+		String username = "lschkhdltstwnr";
+		String password = "390b67b5e82e6ccd19652b8fad6474ad9690121c6218181a1896ac6772b96d5f";
+		String dbUrl = "jdbc:postgres://lschkhdltstwnr:390b67b5e82e6ccd19652b8fad6474ad9690121c6218181a1896ac6772b96d5f@ec2-23-21-160-38.compute-1.amazonaws.com:5432/d7vftmfs9pugjs\n?sslmode=require";
 
 		BasicDataSource basicDataSource = new BasicDataSource();
 		basicDataSource.setUrl(dbUrl);
