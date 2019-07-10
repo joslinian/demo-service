@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
 
@@ -11,9 +12,10 @@ import java.util.Date;
 @Table(name = "Student")
 public class Student {
 
+    @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @Column(name = "first_name")
     private String firstName;
@@ -30,6 +32,9 @@ public class Student {
     @Column(name = "modified_date")
     private Date modifiedDate;
 
+    public Student() {
+    }
+
     public Student(String firstName, String lastName, Date dob, Date createdDate, Date modifiedDate) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -38,11 +43,11 @@ public class Student {
         this.modifiedDate = modifiedDate;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
