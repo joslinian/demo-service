@@ -2,6 +2,7 @@ package com.startech.demo.service;
 
 import com.startech.demo.persistence.Student;
 import com.startech.demo.repository.StudentRepository;
+import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +16,7 @@ public class StudentServiceImpl implements StudentService{
     private StudentRepository repository;
 
     public List<Student> getAllStudents() {
-        return repository.findAll();
+        return Lists.newArrayList(repository.findAll());
     }
 
     public Student getStudentById(final Long id) {
