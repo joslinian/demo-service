@@ -35,7 +35,8 @@ public class StudentController {
     @PostMapping(path = "/add-account")
     @ResponseBody
     public void createStudentAccount(@RequestBody final Student student) {
-        service.save(student);
+        final Student studentToSave = new Student(student.getEmail(), student.getPassword(), student.getFirstName(), student.getLastName(), student.getDob(), student.getCreatedDate(), student.getModifiedDate());
+        service.save(studentToSave);
     }
 
     @PostMapping(path = "/add-students", consumes = MediaType.APPLICATION_JSON_VALUE)
