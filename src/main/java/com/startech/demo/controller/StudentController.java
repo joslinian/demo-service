@@ -3,7 +3,6 @@ package com.startech.demo.controller;
 import com.startech.demo.persistence.Student;
 import com.startech.demo.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,17 +20,7 @@ public class StudentController {
     @Autowired
     private StudentService service;
 
-    @RequestMapping("/")
-    public String index() {
-        return "Greetings from Spring Boot!";
-    }
-
-    @GetMapping(value = "/health", produces = MediaType.APPLICATION_JSON_VALUE)
-    public HttpStatus healthCheck() {
-        return HttpStatus.OK;
-    }
-
-    @RequestMapping("/get-students")
+    @GetMapping(value = "/get-students", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Student> getStudents() {
         return service.getAllStudents();
     }
@@ -85,13 +74,5 @@ public class StudentController {
 //        int numEntries = jdbcTemplate.queryForInt("select count (name) from player_info");
 //        return numEntries;
 //    }
-
-
-    @CrossOrigin
-    @RequestMapping(value = "/hello", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
-    String hello() {
-        return "Hello from StarTech Industries!";
-    }
 
 }
